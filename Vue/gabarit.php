@@ -64,11 +64,11 @@
             <ul id="mobile-menu" class="side-nav">
                 <li><a href="Accueil">Accueil</a></li>
                 <li><a href="Billet">Post</a></li>
-<<<<<<< HEAD
+
                 <li><a href="Billet/creer">Créer post</a></li>
-=======
+
                 <li><a href="billet/creer">Créer post</a></li>
->>>>>>> master
+
             </ul>
         </div>
 
@@ -80,10 +80,7 @@
         <p></p>
     </header>
     <div id="contenu">
-<<<<<<< HEAD
 
-=======
->>>>>>> master
         <?= $contenu ?>
     </div>
 
