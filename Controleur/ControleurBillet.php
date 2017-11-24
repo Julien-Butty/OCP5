@@ -24,14 +24,11 @@ class ControleurBillet extends Controleur
     }
 
 
-
     public function index()
     {
         $billets = $this->billet->getBillets();
         $this->genererVue(array('billets' => $billets));
     }
-
-
 
     public function read()
     {
@@ -42,6 +39,7 @@ class ControleurBillet extends Controleur
 
         $this->genererVue(array('billet' => $billet));
     }
+
 
 
 
@@ -110,6 +108,7 @@ class ControleurBillet extends Controleur
         }
         $this->genererVue();
     }
+
 }
 
 

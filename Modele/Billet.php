@@ -41,7 +41,7 @@ class Billet extends Modele
 
     }
 
-
+  
     /**
      * @param $billet
      */
@@ -80,4 +80,4 @@ class Billet extends Modele
     // public function valider() à ajouter pour controler toutes les entrées des formulaires de billets
 
 
-}
+
