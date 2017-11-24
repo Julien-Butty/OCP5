@@ -1,13 +1,4 @@
 
-<?php $this->titre = 'Posts'; ?>
-
-<?php foreach ($billets as $billet):
-    ?>
-
-    <section class="padding-perso row">
-        <div class="col s12 offset-m3 m6">
-            <div class="card  hoverable">
-                <div class="card-content">
 
 <?php $this->titre = 'Posts'; ?>
 

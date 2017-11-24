@@ -41,14 +41,13 @@ class Billet extends Modele
 
     }
 
-  
+
     /**
      * @param $billet
      */
-    public function modifierBillet( $billet)
+    public function modifierBillet($billet)
     {
         $sql = 'UPDATE billet SET titre = :titre, chapo = :chapo, contenu = :contenu, auteur = :auteur, date= NOW() WHERE id = :id';
-
 
 
         $this->executerRequete($sql, [
@@ -75,6 +74,7 @@ class Billet extends Modele
         $this->executerRequete($sql, array($titre, $chapo, $contenu, $auteur, $date));
 
     }
+}
 
 
     // public function valider() à ajouter pour controler toutes les entrées des formulaires de billets
