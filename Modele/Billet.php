@@ -40,6 +40,44 @@ class Billet extends Modele
             throw new \Exception("Aucun billet ne correspond à l'identifiant '$idBillet'");
 
     }
-}
+
+  
+    /**
+     * @param $billet
+     */
+    public function modifierBillet( $billet)
+    {
+        $sql = 'UPDATE billet SET titre = :titre, chapo = :chapo, contenu = :contenu, auteur = :auteur, date= NOW() WHERE id = :id';
+
+
+
+        $this->executerRequete($sql, [
+            'titre' => $billet['titre'],
+            'chapo' => $billet['chapo'],
+            'contenu' => $billet['contenu'],
+            'auteur' => $billet['auteur'],
+            'id' => $billet['id']
+        ]);
+
+    }
+
+
+    /**
+     * @param $titre
+     * @param $chapo
+     * @param $contenu
+     * @param $auteur
+     */
+    public function creerPost($titre, $chapo, $contenu, $auteur)
+    {
+        $sql = 'INSERT INTO billet(titre, chapo, contenu, auteur, date) VALUES (?,?,?,?,?);';
+        $date = date(DATE_W3C);
+        $this->executerRequete($sql, array($titre, $chapo, $contenu, $auteur, $date));
+
+    }
+
+
+    // public function valider() à ajouter pour controler toutes les entrées des formulaires de billets
+
 
 
