@@ -110,6 +110,3 @@ class ControleurBillet extends Controleur
     }
 
 }
-
-
-
