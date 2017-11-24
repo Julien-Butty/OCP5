@@ -111,6 +111,3 @@ class ControleurBillet extends Controleur
         $this->genererVue();
     }
 }
-
-
-

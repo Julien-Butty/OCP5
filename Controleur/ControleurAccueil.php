@@ -54,11 +54,10 @@ class ControleurAccueil extends Controleur
                 $headers = 'FROM: julienbutty@gmail.com';
 
                 mail('julienbutty@gmail.com', 'Formulaire de contact', $message, $headers);
-<<<<<<< HEAD
 
-=======
-                $this->requete->getSession()->detruire();
->>>>>>> master
+
+
+
                 $this->rediriger("accueil", "index");
 
             }

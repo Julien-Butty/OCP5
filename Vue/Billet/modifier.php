@@ -26,4 +26,4 @@
             <input type="hidden" name="token" id="token" value="<?php echo $_SESSION["token"] ; ?>" />
         </div>
     </form>
-</section>"
+</section>

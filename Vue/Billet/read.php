@@ -12,4 +12,3 @@
 	</div><br>
 	<a href="<?= "billet/modifier/"  . $this->nettoyer($billet['id'])?>" class="btn waves-effect waves-light light-blue accent-3" role="button" title="Lien 1">Modifier</a>
 </section>
-
