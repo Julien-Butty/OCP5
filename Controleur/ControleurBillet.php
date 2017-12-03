@@ -79,13 +79,16 @@ class ControleurBillet extends Controleur
             }
 
 
-            $this->billet->modifierBillet($billet);
+            $errors = $this->billet->valider($billet);
 
-            $this->rediriger("billet", 'index');
+            if (count($errors) === 0) {
+                $this->billet->modifierBillet($billet);
+                $this->rediriger("billet", 'index');
+            }
         }
 
 
-        $this->genererVue(array('billet' => $billet));
+        $this->genererVue(array('billet' => $billet, 'errors' => $errors));
     }
 
 

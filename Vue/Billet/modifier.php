@@ -3,6 +3,21 @@
 
 <section class="container padding-perso">
     <form method="post" action="">
+
+        <!--  message flash      -->
+        <div  class="container">
+            <div class="col">
+                <ul id="alert">
+                    <?php foreach ($errors as $error): ?>
+                        <li  class="card-panel red darken-1 white-text center-align ">
+                            <?= $error ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </div>
+
+
         <div class="row">
             <div class="input-field">
                 <label for="modifTitre">Titre</label>

@@ -1,5 +1,24 @@
 <?php $this->titre = 'Accueil'; ?>
 
+
+<?php if (isset($errors)) :?>
+
+    <!--  message flash      -->
+    <div  class="container">
+        <div class="col">
+            <ul id="alert">
+                <?php foreach ($errors as $error): ?>
+                    <li  class="card-panel red darken-1 white-text center-align  close">
+                        <span class="close" id="close"></span>
+                        <?= $error ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+
+    <?php unset($_SESSION['errors']); endif; ?>
+
 <!--Introduction bloc-->
 <section class="container padding-perso">
     <div class="row">
