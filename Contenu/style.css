@@ -11,8 +11,14 @@
 
 .contenu{
 	text-align: justify;
-
 }
+
+h1{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 .nav-wrapper{
 	border-top-style: solid; 
 	border-bottom-style: solid;

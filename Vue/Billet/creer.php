@@ -1,5 +1,21 @@
 <?php $this->titre = 'Créer Article'; ?>
 
+<?php if (isset($errors) && count($errors) > 0) :?>
+    <!--  message flash      -->
+    <div  class="container">
+        <div class="col">
+            <ul id="alert">
+                <?php foreach ($errors as $error): ?>
+                    <li  class="card-panel red darken-1 white-text center-align  ">
+                        <?= $error ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+
+<?php  endif; ?>
+
 <section class="container padding-perso">
     <form method="post" action="">
         <div class="row">

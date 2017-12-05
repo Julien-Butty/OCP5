@@ -26,14 +26,14 @@ class ControleurAccueil extends Controleur
 
             if ($this->requete->existeParametre('nom') === false) {
                 $errors[] = "Vous n'avez pas renseigné votre nom";
-                //  $this->requete->getSession()->flash("Vous n'avez pas renseignez votre nom");
+
             } else {
                 $input['nom'] = $this->requete->getParametre('nom');
             }
 
             if ($this->requete->existeParametre('email') === false || filter_var($this->requete->existeParametre('email'), FILTER_VALIDATE_EMAIL)) {
                 $errors[] = "Vous n'avez pas renseigné un email valide";
-                //$this->requete->getSession()->flash("Vous n'avez pas renseignez un mail valide");
+
             } else {
                 $input['email'] = $this->requete->getParametre('email');
             }
@@ -44,7 +44,7 @@ class ControleurAccueil extends Controleur
             } else {
                 $input['message'] = $this->requete->getParametre('message');
             }
-            //$this->requete->getSession()->getAttribut() a remplacer
+
             if (count($errors) === 0) {
 
                 $message = $this->requete->getParametre('message');

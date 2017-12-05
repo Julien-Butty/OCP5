@@ -2,7 +2,7 @@
 
 namespace App\Modele;
 
-use App\framework\Modele;
+use App\Framework\Modele;
 use Couchbase\Exception;
 
 class Billet extends Modele

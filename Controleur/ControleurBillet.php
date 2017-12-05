@@ -2,7 +2,7 @@
 
 Namespace App\Controleur;
 
-use App\framework\Controleur;
+use App\Framework\Controleur;
 use App\Modele\Billet;
 use App\Framework\Modele;
 use App\Framework\Session;
@@ -95,7 +95,7 @@ class ControleurBillet extends Controleur
 
     public function creer()
     {
-
+        $errors = [];
 
         if (isset($_POST['creer'])) {
 
@@ -104,12 +104,32 @@ class ControleurBillet extends Controleur
             $contenu = $this->requete->getParametre('contenu');
             $auteur = $this->requete->getParametre('auteur');
 
-            $this->billet->creerPost($titre, $chapo, $contenu, $auteur);
+            if (strlen($titre) < 3){
+                $errors[] = "Le titre doit comporter au moins 3 caractères";
+            }
 
-            //$this->executerAction("billet/index");
-            $this->rediriger("billet", 'index');
+            if (!isset($titre)){
+                $errors[] = "Vous devez renseigner un titre";
+            }
+            if (strlen($chapo) < 3){
+                $errors[] = "Le chapo doit comporter au moins 3 caractères";
+            }
+            if (strlen($auteur) < 2){
+                $errors[] = "Le nom de l'auteur doit comporter au moins 2 caractères";
+            }
+            if (strlen($contenu) < 10){
+                $errors[] = "Revoir le contenur, Le texte doit contenir au moins 10 caractères";
+            }
+
+            if (count($errors) === 0) {
+
+                $this->billet->creerPost($titre, $chapo, $contenu, $auteur);
+
+                //$this->executerAction("billet/index");
+                $this->rediriger("billet", 'index');
+            }
         }
-        $this->genererVue();
+        $this->genererVue( array('errors' => $errors));
     }
 
 }
