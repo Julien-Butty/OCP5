@@ -73,7 +73,7 @@ abstract class Controleur {
     {
         // Utilisation de l'action actuelle par défaut
         $actionVue = $this->action;
-        if ($action != null) {
+        if ($action !== null) {
             // Utilisation de l'action actuelle par défaut
             $actionVue = $action;
         }

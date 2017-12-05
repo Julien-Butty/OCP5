@@ -25,7 +25,7 @@ abstract class Modele {
      * @return PDOStatement Résultats de la requête
      */
     protected function executerRequete($sql, $params = null) {
-        if ($params == null) {
+        if ($params === null) {
             $resultat = self::getBdd()->query($sql);   // exécution directe
         }
         else {

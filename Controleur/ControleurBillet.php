@@ -125,7 +125,7 @@ class ControleurBillet extends Controleur
 
                 $this->billet->creerPost($titre, $chapo, $contenu, $auteur);
 
-                //$this->executerAction("billet/index");
+
                 $this->rediriger("billet", 'index');
             }
         }
