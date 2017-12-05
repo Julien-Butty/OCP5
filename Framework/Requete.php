@@ -55,11 +55,12 @@ class Requete {
      * @throws \Exception
      */
     public function getParametre($nom) {
+        $errors = [];
         if ($this->existeParametre($nom)) {
             return $this->parametres[$nom];
         }
         else{
-            throw new \Exception("Paramètre '$nom' absent de la requête");
+           $errors[] = "Paramètre '$nom' absent de la requête";
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Modele;
 
-use App\framework\Modele;
+use App\Framework\Modele;
 use Couchbase\Exception;
 
 class Billet extends Modele
@@ -74,10 +74,36 @@ class Billet extends Modele
         $this->executerRequete($sql, array($titre, $chapo, $contenu, $auteur, $date));
 
     }
+
+
+    /**
+     * @param $billet
+     * @return array
+     */
+    public function valider($billet)
+    {
+        $errors = [];
+
+        if (strlen($billet['titre'])< 3 ) {
+            $errors[] = " Le titre doit comporter au moins 3 caractères";
+        }
+
+        if (strlen($billet['chapo']) < 3) {
+            $errors[] = "Le chapo ne peut contenir moins de 3 caractères";
+        }
+        if (strlen($billet['auteur']) < 2) {
+            $errors[] = "Le nom de l'auteur doit comporter plus de 2 caractères";
+        }
+        if (strlen($billet['contenu']) < 10) {
+            $errors[] = "Contenu à revoir, le texte doit comporter plus de 10 caractères";
+        }
+
+        return $errors;
+
+    }
 }
 
 
-    // public function valider() à ajouter pour controler toutes les entrées des formulaires de billets
 
 
 

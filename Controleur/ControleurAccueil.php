@@ -20,36 +20,33 @@ class ControleurAccueil extends Controleur
 
         $errors = [];
         $input = [];
+
+
         if ($this->requete->existeParametre('envoyer')) {
 
             if ($this->requete->existeParametre('nom') === false) {
-                $errors['nom'] = "Vous n'avez pas renseigné votre nom";
+                $errors[] = "Vous n'avez pas renseigné votre nom";
+
             } else {
                 $input['nom'] = $this->requete->getParametre('nom');
             }
 
             if ($this->requete->existeParametre('email') === false || filter_var($this->requete->existeParametre('email'), FILTER_VALIDATE_EMAIL)) {
-                $errors['email'] = "Vous n'avez pas renseigné un email valide";
+                $errors[] = "Vous n'avez pas renseigné un email valide";
+
             } else {
                 $input['email'] = $this->requete->getParametre('email');
             }
 
-            if ($this->requete->existeParametre('message') === false) {
-                $errors['message'] = "Vous n'avez pas renseigné votre message";
+            if ($this->requete->existeParametre('message') === false ) {
+                $errors[] = "Vous n'avez pas renseigné votre message";
+                //$this->requete->getSession()->flash("Vous n'avez pas renseignez votre message");
             } else {
                 $input['message'] = $this->requete->getParametre('message');
             }
-//$this->requete->getSession()->getAttribut() a remplacer
-            if (!empty($errors)) {
 
-                $this->requete->getSession()->setAttribute('errors', $errors);
-                $this->requete->getSession()->setAttribute('inputs', $_POST);
+            if (count($errors) === 0) {
 
-                //echo '<div class="alert alert-danger">' . implode('<br>', $_SESSION['errors']) . '</div>';
-                $this->rediriger('accueil', 'index');
-
-
-            } else {
                 $message = $this->requete->getParametre('message');
                 $headers = 'FROM: julienbutty@gmail.com';
 
@@ -60,13 +57,15 @@ class ControleurAccueil extends Controleur
 
                 $this->rediriger("accueil", "index");
 
+
+
+
+
             }
         }
 
 
-        $this->genererVue();
+        $this->genererVue( array('errors' => $errors));
 
     }
-
-
 }

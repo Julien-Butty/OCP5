@@ -94,5 +94,5 @@ class Routeur {
     private function gererErreur(\Exception $exception) {
         $vue = new Vue('erreur');
         $vue->generer(array('msgErreur' => $exception->getMessage()));
-    }
+        }
 }

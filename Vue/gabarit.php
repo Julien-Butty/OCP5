@@ -57,18 +57,15 @@
 
             <ul class="right hide-on-med-and-down">
                 <li><a href="Accueil">Accueil</a></li>
-                <li><a href="Billet">Post</a></li>
-                <li><a href="billet/creer">Créer post</a></li>
+                <li><a href="Billet">Articles</a></li>
+                <li><a href="billet/creer">Créer un article</a></li>
             </ul>
 
             <ul id="mobile-menu" class="side-nav">
                 <li><a href="Accueil">Accueil</a></li>
-                <li><a href="Billet">Post</a></li>
+                <li><a href="Billet">Articles</a></li>
 
-                <li><a href="Billet/creer">Créer post</a></li>
-
-                <li><a href="billet/creer">Créer post</a></li>
-
+                <li><a href="Billet/creer">Créer un article</a></li>
             </ul>
         </div>
 
@@ -80,7 +77,6 @@
         <p></p>
     </header>
     <div id="contenu">
-
         <?= $contenu ?>
     </div>
 
@@ -145,8 +141,17 @@
 
 
     });
+
+    jQuery(function($){
+
+        var alert = $('#alert');
+        if (alert.length > 0){
+            alert.hide().slideDown(500).delay(6000).slideUp();
+
+        }
+
+    });
 </script>
-<script>document.write('<script src="http://' + (location.host || '${1:localhost}').split(':')[0] + ':${2:35729}/livereload.js?snipver=1"></' + 'script>')</script>
 
 
 </body>
