@@ -40,7 +40,7 @@ class ControleurAccueil extends Controleur
 
             if ($this->requete->existeParametre('message') === false ) {
                 $errors[] = "Vous n'avez pas renseigné votre message";
-                //$this->requete->getSession()->flash("Vous n'avez pas renseignez votre message");
+
             } else {
                 $input['message'] = $this->requete->getParametre('message');
             }

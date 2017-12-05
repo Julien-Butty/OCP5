@@ -39,7 +39,7 @@ class Configuration {
      * @throws \Exception
      */
     private static function getParametres() {
-        if (self::$parametres == null) {
+        if (self::$parametres === null) {
             $cheminFichier = "Config/dev.ini";
             if (!file_exists($cheminFichier)) {
                 $cheminFichier = "Config/prod.ini";
