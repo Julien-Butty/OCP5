@@ -1,13 +1,13 @@
 <?php $this->titre = 'Accueil'; ?>
 
 
-<?php if (isset($errors) && count($errors) > 0) :?>
+<?php if (isset($errors) && count($errors) > 0) : ?>
     <!--  message flash      -->
-    <div  class="container">
+    <div class="container">
         <div class="col">
             <ul id="alert">
                 <?php foreach ($errors as $error): ?>
-                    <li  class="card-panel red darken-1 white-text center-align  ">
+                    <li class="card-panel red darken-1 white-text center-align  ">
                         <?= $error ?>
                     </li>
                 <?php endforeach; ?>
@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <?php  endif; ?>
+<?php endif; ?>
 
 <!--Introduction bloc-->
 <section class="container padding-perso">
@@ -67,7 +67,6 @@
     </div>
 </section>
 <hr/>
-
 <!--Modal button and contact form-->
 <section class="padding-perso ">
     <div class="container contact ">
@@ -77,36 +76,28 @@
                 <div class="row center-align">
                     <h4>Contactez moi</h4>
                 </div>
-
                 <div class="row ">
-
                     <form class="col offset-m3 m6 s12" method="POST">
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">account_circle</i>
                                 <label for="inputNom">Votre nom</label>
-                                <input type="text" name="nom" class="validate" id="inputNom"
-                                       value="<?= isset($_SESSION['inputs']['nom']) ? $_SESSION['inputs']['nom'] : ''; ?>">
+                                <input type="text" name="nom" class="validate" id="inputNom" value="">
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">mail</i>
                                 <label for="inputEmail">Votre email</label>
-                                <input type="email" name="email" class="validate" id="inputEmail"
-                                       value="<?= isset($_SESSION['inputs']['email']) ? $_SESSION['inputs']['email'] : ''; ?>">
+                                <input type="email" name="email" class="validate" id="inputEmail" value="">
                             </div>
                         </div>
-
-
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">message</i>
                                 <label for="inputMessage">Votre message</label>
                                 <textarea name="message" class="materialize-textarea " id="inputMessage"
-                                          value="<?= isset($_SESSION['inputs']['message']) ? $_SESSION['inputs']['message'] : ''; ?>"></textarea>
+                                          value=""></textarea>
                             </div>
                         </div>
-
-
                         <div class="input-field col s12 left-align">
                             <button type="submit" name="envoyer" value="1"
                                     class="btn waves-effect waves-light light-blue accent-3">Envoyer
