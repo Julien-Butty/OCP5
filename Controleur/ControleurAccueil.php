@@ -19,7 +19,7 @@ class ControleurAccueil extends Controleur
     {
 
         $errors = [];
-        $input = [];
+
 
 
         if ($this->requete->existeParametre('envoyer')) {
@@ -27,22 +27,16 @@ class ControleurAccueil extends Controleur
             if ($this->requete->existeParametre('nom') === false) {
                 $errors[] = "Vous n'avez pas renseigné votre nom";
 
-            } else {
-                $input['nom'] = $this->requete->getParametre('nom');
             }
 
             if ($this->requete->existeParametre('email') === false || filter_var($this->requete->existeParametre('email'), FILTER_VALIDATE_EMAIL)) {
                 $errors[] = "Vous n'avez pas renseigné un email valide";
 
-            } else {
-                $input['email'] = $this->requete->getParametre('email');
             }
 
             if ($this->requete->existeParametre('message') === false ) {
                 $errors[] = "Vous n'avez pas renseigné votre message";
 
-            } else {
-                $input['message'] = $this->requete->getParametre('message');
             }
 
             if (count($errors) === 0) {
@@ -53,7 +47,6 @@ class ControleurAccueil extends Controleur
                 mail('julienbutty@gmail.com', 'Formulaire de contact', $message, $headers);
 
 
-                $this->requete->getSession()->detruire();
 
                 $this->rediriger("accueil", "index");
 
